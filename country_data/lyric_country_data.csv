@@ -1,0 +1,162 @@
+﻿Country.Code,Lyric,Country.Short.Name,Start.Time,End.Time,Flag.Filename,Extra.Info,Notes
+USA,United States,United States,0:03.787,0:04.400,united-states-of-america-flag.svg,,
+CAN,Canada,Canada,0:04.400,0:04.805,canada-flag.svg,,
+MEX,Mexico,Mexico,0:04.805,0:05.281,mexico-flag.svg,,
+PAN,Panama,Panama,0:05.281,0:05.720,panama-flag.svg,,
+HTI,Haiti,Haiti,0:05.720,0:06.035,haiti-flag.svg,,
+JAM,Jamaca,Jamaica,0:06.035,0:06.508,jamaica-flag.svg,,
+PER,Peru,Peru,0:06.508,0:06.976,peru-flag.svg,,
+DOM,Republic Dominican,Dominican Republic,0:07.348,0:08.485,dominican-republic-flag.svg,,Dominican Republic
+CUB,Cuba,Cuba,0:08.485,0:08.810,cuba-flag.svg,,
+,Caribbean,,0:08.810,0:09.452,,,"St. Kitts and Nevis, St. Lucia, Grenada, Dominica, Antigua and Barbuda, etc"
+GRL,Greenland,Greenland,0:09.452,0:09.775,greenland-flag.svg,,
+SLV,El Salvador,El Salvador,0:09.775,0:10.363,el-salvador-flag.svg,,
+PRI,Puerto Rico,Puerto Rico,0:10.815,0:11.563,puerto-rico-flag.svg,,
+COL,Colombia,Colombia,0:11.563,0:12.211,colombia-flag.svg,,
+VEN,Venezuela,Venezuela,0:12.211,0:12.937,venezuela-flag.svg,,
+HND,Honduras,Honduras,0:12.937,0:13.448,honduras-flag.svg,,
+GUY,Guyana,Guyana,0:13.448,0:13.890,guyana-flag.svg,,
+GTM,Guatemala,Guatemala,0:14.722,0:15.258,guatemala-flag.svg,,
+BOL,Bolivia,Bolivia,0:15.258,0:15.839,bolivia-flag.svg,,
+ARG,Argentina,Argentina,0:16.037,0:16.531,argentina-flag.svg,,
+ECU,Ecuador,Ecuador,0:16.822,0:17.213,ecuador-flag.svg,,
+CHL,Chile,Chile,0:17.213,0:17.525,chile-flag.svg,,
+BRA,Brazil,Brazil,0:17.525,0:18.140,brazil-flag.svg,,
+CRI,Costa Rica,Costa Rica,0:18.140,0:18.940,costa-rica-flag.svg,,
+BLZ,Belize,Belize,0:18.940,0:19.281,belize-flag.svg,,
+NIC,Nicaragua,Nicaragua,0:19.281,0:19.897,nicaragua-flag.svg,,
+BMU,Bermuda,Bermuda,0:19.897,0:20.371,bermuda-flag.svg,,
+BHS,Bahamas,The Bahamas,0:20.371,0:20.822,bahamas-flag.svg,,
+TTO,Tobago,Trinidad and Tobago,0:20.822,0:21.222,trinidad-and-tobago-flag.svg,,Trinidad and Tobago
+,San Juan,San Juan,0:21.222,0:22.364,puerto-rico-flag.svg,Capital of Puerto Rico,Capital of Puerto Rico
+PRY,Paraguay,Paraguay,0:22.364,0:22.811,paraguay-flag.svg,,
+URY,Uruguay,Uruguay,0:22.811,0:23.215,uruguay-flag.svg,,
+SUR,Suriname,Suriname,0:23.215,0:23.710,suriname-flag.svg,,
+,French Guiana,French Guiana,0:23.870,0:24.500,france-flag.svg,Overseas department of France,
+BRB,Barbados,Barbados,0:24.500,0:24.960,barbados-flag.svg,,
+GUM,Guam,Guam,0:25.073,0:26.000,guam-flag.svg,,BREAK
+NOR,Norway,Norway,0:28.585,0:28.933,norway-flag.svg,,
+SWE,Sweden,Sweden,0:29.067,0:29.384,sweden-flag.svg,,
+ISL,Iceland,Iceland,0:29.532,0:29.840,iceland-flag.svg,,
+FIN,Finland,Finland,0:29.975,0:30.322,finland-flag.svg,,
+DEU,Germany,Germany,0:30.439,0:30.891,germany-flag.svg,,
+CHE,Switzerland,Switzerland,0:32.066,0:32.661,switzerland-flag.svg,,
+AUT,Austria,Austria,0:32.661,0:33.065,austria-flag.svg,,
+CZE,Czecho-,Czechia,0:33.065,0:33.330,czech-republic-flag.svg,,Czechia
+SVK,slovakia,Slovak Republic,0:33.330,0:33.977,slovakia-flag.svg,,Slovak Republic
+ITA,Italy,Italy,0:33.977,0:34.416,italy-flag.svg,,
+TUR,Turkey,Türkiye,0:34.416,0:34.711,turkey-flag.svg,,Türkiye
+GRC,Greece,Greece,0:34.832,0:35.341,greece-flag.svg,,
+POL,Poland,Poland,0:35.796,0:36.066,poland-flag.svg,,
+ROU,Romania,Romania,0:36.066,0:36.556,romania-flag.svg,,
+GBR,Scotland,United Kingdom,0:36.556,0:36.978,united-kingdom-flag.svg,,"Part of United Kingdom, scotland-flag.svg"
+ALB,Albania,Albania,0:36.978,0:37.533,albania-flag.svg,,
+IRL,Ireland,Ireland,0:37.533,0:37.946,ireland-flag.svg,,
+RUS,Russia,Russia,0:37.946,0:38.241,russia-flag.svg,,
+OMN,Oman,Oman,0:38.241,0:38.788,oman-flag.svg,,
+BGR,Bulgaria,Bulgaria,0:39.170,0:39.700,bulgaria-flag.svg,,
+SAU,Saudi Arabia,Saudi Arabia,0:39.700,0:40.603,saudi-arabia-flag.svg,,
+HUN,Hungary,Hungary,0:40.603,0:41.011,hungary-flag.svg,,
+CYP,Cyprus,Cyprus,0:41.011,0:41.407,cyprus-flag.svg,,
+IRQ,Iraq,Iraq,0:41.407,0:41.711,iraq-flag.svg,,
+IRN,Iran,Iran,0:41.858,0:42.449,iran-flag.svg,,
+SYR,Syria,Syria,0:42.796,0:43.269,syria-flag.svg,,Syrian Arab Republic
+LBN,Lebanon,Lebanon,0:43.269,0:43.747,lebanon-flag.svg,,
+ISR,Isreal,Israel,0:43.747,0:44.177,israel-flag.svg,,
+JOR,Jordan,Jordan,0:44.177,0:44.485,jordan-flag.svg,,
+YEM,Both Yemens,Yemen,0:44.485,0:44.941,yemen-flag.svg,,Only one Yemen
+KWT,Kuwait,Kuwait,0:44.941,0:45.210,kuwait-flag.svg,,
+BHR,Bahrain,Bahrain,0:45.345,0:45.940,bahrain-flag.svg,,
+NLD,Netherlands,Netherlands,0:46.359,0:46.828,netherlands-flag.svg,,
+LUX,Luxembourg,Luxembourg,0:46.828,0:47.284,luxembourg-flag.svg,,
+BEL,Belgium,Belgium,0:47.284,0:47.557,belgium-flag.svg,,
+PRT,Portugal,Portugal,0:47.714,0:48.113,portugal-flag.svg,,
+FRA,France,France,0:48.113,0:48.339,france-flag.svg,,
+,England,England,0:48.339,0:48.639,england-flag.svg,Part of United Kindgom,
+DNK,Denmark,Denmark,0:48.639,0:48.947,denmark-flag.svg,,
+ESP,Spain,Spain,0:49.026,0:49.918,spain-flag.svg,,BREAK
+IND,India,India,0:52.670,0:53.013,india-flag.svg,,
+PAK,Pakistan,Pakistan,0:53.013,0:53.471,pakistan-flag.svg,,
+MMR,Burma,Myanmar,0:53.471,0:53.712,myanmar-flag.svg,,Myanmar
+AFG,Afghanistan,Afghanistan,0:53.712,0:54.363,afghanistan-flag.svg,,
+THA,Thailand,Thailand,0:54.363,0:54.604,thailand-flag.svg,,
+NPL,Nepal,Nepal,0:54.604,0:54.963,nepal-flag.svg,,
+BTN,Bhutan,Bhutan,0:55.089,0:55.670,bhutan-flag.svg,,
+KHM,Kampuchea,Cambodia,0:55.670,0:56.432,cambodia-flag.svg,,Cambodia
+MYS,Malaysia,Malaysia,0:56.432,0:56.882,malaysia-flag.svg,,
+BGD,Bangladesh,Bangladesh,0:57.032,0:57.482,bangladesh-flag.svg,,
+,Asia,,0:57.482,0:57.774,,,
+CHN,China,China,0:57.912,0:58.192,china-flag.svg,,
+KOR,Korea,South Korea,0:58.192,0:58.630,south-korea-flag.svg,,"South Korea, DPRK in extra"
+JPN,Japan,Japan,0:58.630,0:59.151,japan-flag.svg,,
+MNG,Mongolia,Mongolia,0:59.554,1:00.119,mongolia-flag.svg,,
+LAO,Laos,Lao PDR,1:00.119,1:00.348,laos-flag.svg,,
+,Tibet,Tibet,1:00.462,1:00.730,tibet-flag.svg,Part of China,Part of China
+IDN,Indonesia,Indonesia,1:00.730,1:01.303,indonesia-flag.svg,,
+PHL,The Philippine Islands,Philippines,1:01.303,1:02.223,philippines-flag.svg,,
+,Taiwan,Taiwan,1:02.223,1:02.649,taiwan-flag.svg,[REDACTED],Part of China
+LKA,Sri Lanka,Sri Lanka,1:03.052,1:03.513,sri-lanka-flag.svg,,
+PNG,New Guinea,Papua New Guinea,1:03.513,1:03.940,papua-new-guinea-flag.svg,,Papa New Guinea
+,Sumatra,Sumatra,1:03.940,1:04.368,indonesia-flag.svg,Island of Indonesia,Island of Indonesia
+NZL,New Zealand,New Zealand,1:04.368,1:04.863,new-zealand-flag.svg,,
+BRN,Borneo,Brunei (alt.),1:05.017,1:05.501,brunei-flag.svg,,"Island of Indonedia, also has Brunei and parts of Malasia"
+VNM,Vietnam,Vietnam,1:05.649,1:06.390,vietnam-flag.svg,,
+TUN,Tunisia,Tunisia,1:06.390,1:07.062,tunisia-flag.svg,,
+MAR,Morocco,Morocco,1:07.062,1:07.508,morocco-flag.svg,,
+UGA,Uganda,Uganda,1:07.508,1:07.958,uganda-flag.svg,,
+AGO,Angola,Angola,1:07.958,1:08.404,angola-flag.svg,,
+ZWE,Zimbabwe,Zimbabwe,1:08.404,1:08.858,zimbabwe-flag.svg,,
+DJI,Djibouti,Djibouti,1:08.858,1:09.292,djibouti-flag.svg,,
+BWA,Botswana,Botswana,1:09.292,1:10.034,botswana-flag.svg,,
+MOZ,Mozambique,Mozambique,1:10.370,1:10.765,mozambique-flag.svg,,
+ZMB,Zambia,Zambia,1:10.765,1:11.171,zambia-flag.svg,,
+SWZ,Swaziland,Eswatini,1:11.171,1:11.688,swaziland-flag.svg,,Eswatini
+GMB,Gambia,The Gambia,1:11.688,1:12.124,gambia-flag.svg,,
+GIN,Guinea,Guinea,1:12.124,1:12.422,guinea-flag.svg,,
+DZA,Algeria,Algeria,1:12.422,1:13.014,algeria-flag.svg,,
+GHA,Ghana,Ghana,1:13.014,1:13.885,ghana-flag.svg,,BREAK
+BDI,Burundi,Burundi,1:16.124,1:16.451,burundi-flag.svg,,
+LSO,Lesotho,Lesotho,1:16.451,1:16.860,lesotho-flag.svg,,
+MWI,Malawi,Malawi,1:17.003,1:17.412,malawi-flag.svg,,
+TGO,Togo,Togo,1:17.412,1:17.667,togo-flag.svg,,
+,The Spanish Sahara,Western Sahara,1:17.667,1:18.432,,"Disputed territory: SADR, Morocco",
+NER,Niger,Niger,1:19.307,1:19.677,niger-flag.svg,,
+NGA,Nigeria,Nigeria,1:19.677,1:20.197,nigeria-flag.svg,,
+TCD,Chad,Chad,1:20.197,1:20.359,chad-flag.svg,,
+LBR,Liberia,Liberia,1:20.441,1:21.008,liberia-flag.svg,,
+EGY,Egypt,Egypt,1:21.008,1:21.278,egypt-flag.svg,,
+BEN,Benin,Benin,1:21.278,1:21.565,benin-flag.svg,,
+GAB,Gabon,Gabon,1:21.676,1:22.196,gabon-flag.svg,,
+TZA,Tanzania,Tanzania,1:22.196,1:22.813,tanzania-flag.svg,,
+SOM,Somalia,Somalia,1:22.813,1:23.409,somalia-flag.svg,,
+KEN,Kenya,Kenya,1:23.409,1:23.668,kenya-flag.svg,,
+MLI,Mali,Mali,1:23.804,1:24.030,mali-flag.svg,,
+SLE,Sierra Leone,Sierra Leone,1:24.030,1:24.737,sierra-leone-flag.svg,,
+,Algiers,Algiers,1:24.891,1:25.437,algeria-flag.svg,Capital of Algeria,Capital of Algeria
+,Dahomey,Dahomey,1:25.634,1:26.007,benin-flag.svg,See Benin,Same as Benin
+NAM,Namibia,Namibia,1:26.007,1:26.521,namibia-flag.svg,,
+SEN,Senegal,Senegal,1:26.521,1:27.023,senegal-flag.svg,,
+LBY,Libya,Libya,1:27.023,1:27.385,libya-flag.svg,,
+CMR,Cameroon,Cameroon,1:27.385,1:27.802,cameroon-flag.svg,,
+COG,Congo,Congo,1:27.802,1:28.056,congo-republic-of-the-flag.svg,,
+COD,Zaire,Dem. Rep. Congo,1:28.056,1:28.667,congo-democratic-republic-of-the-flag.svg,,Democratic Republic of the Congo (DRC)
+ETH,Ethiopia,Ethiopia,1:28.667,1:29.385,ethiopia-flag.svg,,
+GNB,Guinea-Bissau,Guinea-Bissau,1:29.385,1:29.923,guinea-bissau-flag.svg,,
+MDG,Madagascar,Madagascar,1:29.923,1:30.454,madagascar-flag.svg,,
+RWA,Rwanda,Rwanda,1:30.454,1:30.831,rwanda-flag.svg,,
+COM,Mahore,Comoros (alt.),1:30.831,1:31.133,comoros-flag.svg,,Disputed region between France and Comoros (Mayotte)
+CYM,Cayman,Cayman Islands,1:31.244,1:31.743,cayman-islands-flag.svg,,
+HKG,Hong Kong,Hong Kong,1:32.048,1:32.371,hongkong-flag.svg,,
+ARE,Abu Dhabi,United Arab Emirates,1:32.371,1:32.873,united-arab-emirates-flag.svg,,Capital of United Arab Emirates (UAE)
+QAT,Qatar,Qatar,1:32.873,1:33.167,qatar-flag.svg,,
+,Yugoslavia,Yugoslavia,1:33.167,1:33.774,yugoslavia-flag.svg,Disintegrated in 1992,"Broken into Slovenia, Croatia, North Macedonia, Serbia, Montenegro, and Bosnia and Herzegovina"
+,Crete,Crete,1:34.115,1:34.344,greece-flag.svg,Island of Greece,
+MRT,Mauritania,Mauritania,1:34.344,1:35.008,mauritania-flag.svg,,
+,Transylvania,Transylvania,1:35.145,1:35.798,transylvania-flag.svg,Historical/cultural region in Romania,Part of Ramania
+MCO,Monaco,Monaco,1:35.798,1:36.132,monaco-flag.svg,,
+LIE,Liechtenstein,Liechtenstein,1:36.132,1:36.569,liechtenstein-flag.svg,,
+MLT,Malta,Malta,1:36.569,1:36.831,malta-flag.svg,,
+PSE,Palestine,Palestine,1:36.989,1:37.402,palestine-flag.svg,,West Bank and Gaza
+FJI,Fiji,Fiji,1:37.402,1:37.671,fiji-flag.svg,,
+AUS,Australia,Australia,1:37.671,1:38.019,australia-flag.svg,,
+SDN,Sudan,Sudan,1:38.019,1:38.425,sudan-flag.svg,,
