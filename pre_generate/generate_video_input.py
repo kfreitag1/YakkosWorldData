@@ -1,52 +1,28 @@
 import json
-import math
-import sys
 
 import pandas as pd
 import numpy as np
 from scipy.optimize import Bounds, curve_fit
-from generate_audio import generate_audio_file
 
-INDICATOR = "SP.POP.TOTL"
-FORMAT_STRING = "{:,.0f} people"
-TITLE = "Population (total)"
-ASCENDING_RANK = False
-TITLE_BACKGROUND = "TOPOGRAPHIC"
-
-MIN_SPEED = 0.3
-MAX_SPEED = 3.5
-INEQUALITY_PRESERVATION_FACTOR = 0.9
-
-FRAME_RATE = 60
-PREVIEW_ONLY = False
+from generate import (INDICATOR, FORMAT_STRING, TITLE,
+                      TITLE_BACKGROUND, MIN_SPEED, MAX_SPEED,
+                      INEQUALITY_PRESERVATION_FACTOR, ASCENDING_RANK)
+from utilities import (nonnull, min_max_normalize, circular_function,
+                       time_string_seconds, seconds_to_frames, none)
 
 
-def main():
-    # Import csv data
-    lyric_data = pd.read_csv("../country_data/lyric_country_data.csv")
-    series_data = pd.read_csv(
-        "../clean_data/series.csv", encoding="ISO-8859-1")
-    all_data = pd.read_csv(
-        "../clean_data/data.csv", encoding="ISO-8859-1")
-
-    # Get specific indicator information and data for specific countries
-    indicator_info = series_data[series_data["Series.Code"] == INDICATOR]
-    indicator_data = all_data[all_data["Series.Code"] == INDICATOR]
-    indicator_lyric_data = lyric_data.merge(
-        indicator_data, how="left", on="Country.Code")
+def generate_lyric_data(lyric_data: pd.DataFrame, indicator_data: pd.DataFrame):
+    indicator_lyric_data = lyric_data.merge(indicator_data, how="left", on="Country.Code")
 
     # Remove entries that don't have a value for Country.Short.Name
-    indicator_lyric_data = indicator_lyric_data[
-        indicator_lyric_data["Country.Short.Name"].notna()]
+    indicator_lyric_data = indicator_lyric_data[indicator_lyric_data["Country.Short.Name"].notna()]
 
     # Clean up data dates, make integers
-    indicator_lyric_data["Recent.Date"] = (
-        indicator_lyric_data["Recent.Date"].apply(nonnull(int)))
+    indicator_lyric_data["Recent.Date"] = indicator_lyric_data["Recent.Date"].apply(nonnull(int))
 
     # Make formatted data strings
     indicator_lyric_data["Recent.Data.String"] = (
-        indicator_lyric_data["Recent.Data"].
-        apply(nonnull(lambda x: FORMAT_STRING.format(x))))
+        indicator_lyric_data["Recent.Data"].apply(nonnull(lambda x: FORMAT_STRING.format(x))))
 
     # Compute rankings
     indicator_lyric_data["Rank"] = (
@@ -63,7 +39,7 @@ def main():
     # Curve fitting normalized data to circular-like function
     nonnull_data = indicator_lyric_data["Normalized.Data.Linear"].dropna()
     size = len(nonnull_data)
-    xdata = [i * 1/size for i in range(size)]
+    xdata = [i * 1 / size for i in range(size)]
     ydata = np.sort(nonnull_data.to_numpy())
     best_coeff = curve_fit(circular_function, xdata, ydata, p0=[0.0],
                            bounds=Bounds(-0.999999, 0.99999))[0][0]
@@ -124,6 +100,10 @@ def main():
     # Replace all instances of NaN with None/null
     indicator_lyric_data = indicator_lyric_data.replace(np.nan, None)
 
+    return indicator_lyric_data
+
+
+def create_output_file(indicator_lyric_data: pd.DataFrame, indicator_info: pd.DataFrame):
     # List of each country (or non-country) segment
     segment_list = [
         {
@@ -161,67 +141,3 @@ def main():
     # Writing to filename
     with open("../generate_video/public/input.json", "w") as outfile:
         outfile.write(json_object)
-
-    # Generate time-mapped audio
-    if not PREVIEW_ONLY:
-        generate_audio_file(indicator_lyric_data)
-
-
-def nonnull(func):
-    return lambda x: func(x) if pd.notna(x) else None
-
-
-def none(x):
-    return x if pd.notna(x) else None
-
-
-# Requires: min != max, val in interval [min, max]
-def min_max_normalize(val, min_val, max_val):
-    return (val - min_val) / (max_val - min_val)
-
-
-# Requires: x interval [0,1], coeff interval (-1, 1)
-def circular_function(x, coeff):
-    # Crazy complicated circular like interpolation function
-    a = math.sqrt(1-coeff) * math.sqrt(1+coeff)
-    b = 1/a + coeff/a
-    return np.power(1 - np.power(1-x, b), 1/b)
-
-
-def time_string_seconds(time_str: str):
-    return sum([
-        a * b for a, b in zip([60, 1], map(float, time_str.split(':')))
-    ])
-
-
-def seconds_to_frames(secs: float):
-    return int(secs * FRAME_RATE)
-
-
-if __name__ == "__main__":
-    # Ran from the bash script, get input values (assume accurate):
-    if len(sys.argv) > 1:
-        INDICATOR = sys.argv[1]
-        FORMAT_STRING = sys.argv[2]
-        TITLE = sys.argv[3]
-        ASCENDING_RANK = sys.argv[4] == 'true'
-        TITLE_BACKGROUND = sys.argv[5]
-
-        MIN_SPEED = float(sys.argv[6])
-        MAX_SPEED = float(sys.argv[7])
-        INEQUALITY_PRESERVATION_FACTOR = float(sys.argv[8])
-
-        PREVIEW_ONLY = sys.argv[9] == 'true'
-
-        print(INDICATOR)
-        print(FORMAT_STRING)
-        print(TITLE)
-        print(ASCENDING_RANK)
-        print(TITLE_BACKGROUND)
-        print(MIN_SPEED)
-        print(MAX_SPEED)
-        print(INEQUALITY_PRESERVATION_FACTOR)
-
-    main()
-
-
