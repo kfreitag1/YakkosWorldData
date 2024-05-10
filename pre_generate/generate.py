@@ -3,6 +3,7 @@ import sys
 import pandas as pd
 from generate_audio import generate_audio_file
 from generate_video_input import generate_lyric_data, create_output_file
+from generate_video_input import generate_lyric_data, create_output_file, generate_formatted_indicator_data
 
 # -----------------------------------------------------
 # VIDEO PARAMETERS
@@ -49,16 +50,28 @@ def main():
     # COMPUTE INDICATOR LYRIC DATA
     # -----------------------------------------------------
 
-    # Get specific indicator information and data for specific countries
     indicator_info = series_data[series_data["Series.Code"] == INDICATOR]
     indicator_data = all_data[all_data["Series.Code"] == INDICATOR]
     indicator_lyric_data = generate_lyric_data(lyric_data, indicator_data)
+
+    # Data ... "Recent.Date", "Recent.Data.String"
+    indicator_data = generate_formatted_indicator_data(all_data, INDICATOR,
+                                                       FORMAT_STRING)
+
+    # Data ... "Rank", "Normalized.Data.Linear", "Normalized.Data.Circular",
+    #          "Speed", "Video.Start.Frame", "Video.End.Frame",
+    #          "Start.Frame", "End.Frame"
+    indicator_lyric_data = generate_lyric_data(lyric_data, indicator_data,
+                                               ASCENDING_RANK,
+                                               INEQUALITY_PRESERVATION_FACTOR,
+                                               MIN_SPEED, MAX_SPEED, FRAME_RATE)
 
     # -----------------------------------------------------
     # GENERATE JSON OUTPUT FILE
     # -----------------------------------------------------
 
-    create_output_file(indicator_lyric_data, indicator_info)
+    create_output_file(indicator_lyric_data, indicator_info, TITLE,
+                       TITLE_BACKGROUND, INDICATOR)
 
     # -----------------------------------------------------
     # DESCRIPTION

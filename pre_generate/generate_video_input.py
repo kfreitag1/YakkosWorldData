@@ -4,30 +4,36 @@ import pandas as pd
 import numpy as np
 from scipy.optimize import Bounds, curve_fit
 
-from generate import (INDICATOR, FORMAT_STRING, TITLE,
-                      TITLE_BACKGROUND, MIN_SPEED, MAX_SPEED,
-                      INEQUALITY_PRESERVATION_FACTOR, ASCENDING_RANK)
 from utilities import (nonnull, min_max_normalize, circular_function,
-                       time_string_seconds, seconds_to_frames, none)
+                       time_string_seconds, none)
 
 
-def generate_lyric_data(lyric_data: pd.DataFrame, indicator_data: pd.DataFrame):
+def generate_formatted_indicator_data(data: pd.DataFrame, indicator: str,
+                                      format_string: str):
+    indicator_data = data[data["Series.Code"] == indicator].copy()
+
+    # Clean up data dates, make integers
+    indicator_data["Recent.Date"] = indicator_data["Recent.Date"].apply(nonnull(int))
+
+    # Make formatted data strings
+    indicator_data["Recent.Data.String"] = (
+        indicator_data["Recent.Data"].apply(nonnull(lambda x: format_string.format(x))))
+
+    return indicator_data
+
+
+def generate_lyric_data(lyric_data: pd.DataFrame, indicator_data: pd.DataFrame,
+                        is_ascending_rank: bool, inequality_factor: float,
+                        min_speed: float, max_speed: float, frame_rate: float):
     indicator_lyric_data = lyric_data.merge(indicator_data, how="left", on="Country.Code")
 
     # Remove entries that don't have a value for Country.Short.Name
     indicator_lyric_data = indicator_lyric_data[indicator_lyric_data["Country.Short.Name"].notna()]
 
-    # Clean up data dates, make integers
-    indicator_lyric_data["Recent.Date"] = indicator_lyric_data["Recent.Date"].apply(nonnull(int))
-
-    # Make formatted data strings
-    indicator_lyric_data["Recent.Data.String"] = (
-        indicator_lyric_data["Recent.Data"].apply(nonnull(lambda x: FORMAT_STRING.format(x))))
-
     # Compute rankings
     indicator_lyric_data["Rank"] = (
         indicator_lyric_data["Recent.Data"]
-        .rank(ascending=ASCENDING_RANK, method="dense")).apply(nonnull(int))
+        .rank(ascending=is_ascending_rank, method="dense")).apply(nonnull(int))
 
     # Get normalized data from [0, 1], corresponding to [min, max]
     indicator_lyric_data["Normalized.Data.Linear"] = (
@@ -48,12 +54,12 @@ def generate_lyric_data(lyric_data: pd.DataFrame, indicator_data: pd.DataFrame):
     indicator_lyric_data["Normalized.Data.Circular"] = (
         indicator_lyric_data["Normalized.Data.Linear"].
         apply(nonnull(lambda x: circular_function(
-            x, -best_coeff * INEQUALITY_PRESERVATION_FACTOR))))
+            x, -best_coeff * inequality_factor))))
 
     # Compute playback speed
     indicator_lyric_data["Speed"] = (
-            MIN_SPEED + indicator_lyric_data["Normalized.Data.Circular"] *
-            (MAX_SPEED - MIN_SPEED))
+            min_speed + indicator_lyric_data["Normalized.Data.Circular"] *
+            (max_speed - min_speed))
     indicator_lyric_data["Speed"] = indicator_lyric_data["Speed"].fillna(1.0)
 
     # Convert start/end times to seconds
@@ -64,9 +70,9 @@ def generate_lyric_data(lyric_data: pd.DataFrame, indicator_data: pd.DataFrame):
 
     # ... Then seconds to frames
     indicator_lyric_data["Video.Start.Frame"] = (
-        indicator_lyric_data["Start.Time"].apply(seconds_to_frames))
+        indicator_lyric_data["Start.Time"].apply(lambda sec: int(sec * frame_rate)))
     indicator_lyric_data["Video.End.Frame"] = (
-        indicator_lyric_data["End.Time"].apply(seconds_to_frames))
+        indicator_lyric_data["End.Time"].apply(lambda sec: int(sec * frame_rate)))
 
     # Create remapped starting/ending frames for speed adjustment
     indicator_lyric_data["Start.Frame"] = int(0)
@@ -103,7 +109,9 @@ def generate_lyric_data(lyric_data: pd.DataFrame, indicator_data: pd.DataFrame):
     return indicator_lyric_data
 
 
-def create_output_file(indicator_lyric_data: pd.DataFrame, indicator_info: pd.DataFrame):
+def create_output_file(indicator_lyric_data: pd.DataFrame,
+                       indicator_info: pd.DataFrame, title: str,
+                       title_background: str, indicator: str):
     # List of each country (or non-country) segment
     segment_list = [
         {
@@ -126,9 +134,9 @@ def create_output_file(indicator_lyric_data: pd.DataFrame, indicator_info: pd.Da
 
     output_object = {
         "segments": segment_list,
-        "title": TITLE,
-        "titleBackground": TITLE_BACKGROUND,
-        "indicator": INDICATOR,
+        "title": title,
+        "titleBackground": title_background,
+        "indicator": indicator,
         "source": none(indicator_info["Source"].values[0]),
         "definition": none(indicator_info["Long.definition"].values[0]),
         "limitations": none(indicator_info["Limitations.and.exceptions"].values[0]),
