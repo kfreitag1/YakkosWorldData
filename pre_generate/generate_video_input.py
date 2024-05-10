@@ -79,7 +79,7 @@ def generate_lyric_data(lyric_data: pd.DataFrame, indicator_data: pd.DataFrame,
     indicator_lyric_data["End.Frame"] = int(0)
     prev_video_frame_end: int = 0
     prev_comp_frame_end: int = 0
-    for index, row in indicator_lyric_data.iterrows():
+    for index, _ in indicator_lyric_data.iterrows():
         # Current segment video start/end
         video_frame_start = indicator_lyric_data["Video.Start.Frame"][index]
         video_frame_end = indicator_lyric_data["Video.End.Frame"][index]

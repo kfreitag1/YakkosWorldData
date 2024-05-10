@@ -2,7 +2,7 @@ import sys
 
 import pandas as pd
 from generate_audio import generate_audio_file
-from generate_video_input import generate_lyric_data, create_output_file
+from generate_description import generate_description
 from generate_video_input import generate_lyric_data, create_output_file, generate_formatted_indicator_data
 
 # -----------------------------------------------------
@@ -51,8 +51,6 @@ def main():
     # -----------------------------------------------------
 
     indicator_info = series_data[series_data["Series.Code"] == INDICATOR]
-    indicator_data = all_data[all_data["Series.Code"] == INDICATOR]
-    indicator_lyric_data = generate_lyric_data(lyric_data, indicator_data)
 
     # Data ... "Recent.Date", "Recent.Data.String"
     indicator_data = generate_formatted_indicator_data(all_data, INDICATOR,
@@ -77,7 +75,9 @@ def main():
     # DESCRIPTION
     # -----------------------------------------------------
 
-    # TODO
+    description = generate_description(indicator_info, indicator_data)
+    description_file = open("../description.txt", "w")
+    description_file.write(description)
 
     # -----------------------------------------------------
     # AUDIO
