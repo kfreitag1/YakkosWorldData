@@ -33,7 +33,7 @@ def generate_lyric_data(lyric_data: pd.DataFrame, indicator_data: pd.DataFrame,
     # Compute rankings
     indicator_lyric_data["Rank"] = (
         indicator_lyric_data["Recent.Data"]
-        .rank(ascending=is_ascending_rank, method="dense")).apply(nonnull(int))
+        .rank(ascending=is_ascending_rank, method="min")).apply(nonnull(int))
 
     # Get normalized data from [0, 1], corresponding to [min, max]
     indicator_lyric_data["Normalized.Data.Linear"] = (
