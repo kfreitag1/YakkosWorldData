@@ -32,11 +32,11 @@ def generate_description(indicator_info: pd.DataFrame, indicator_data: pd.DataFr
 
     # SOURCE
     if indicator_info["Source"].values[0] is not None:
-        output_string += "*Source*: "
+        output_string += "*Source* "
         output_string += indicator_info["Source"].values[0] + "\n\n"
 
     # INDICATOR
-    output_string += "*WDB Indicator*: " + indicator_info["Series.Code"].values[0]
+    output_string += "*WDB Indicator* " + indicator_info["Series.Code"].values[0]
 
     return output_string
 
