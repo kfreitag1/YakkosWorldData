@@ -123,7 +123,7 @@ parse_params "$@"
 
 # Run pre-generation python script from that directory
 cd "${script_dir}/pre_generate"
-.venv/bin/python generate_video_input.py "$indicator" \
+.venv/bin/python generate.py "$indicator" \
  "$format_string" "$title" "$ascending" "$background" \
  "$min_speed" "$max_speed" "$inequality" "$preview"
 cd ..
